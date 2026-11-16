@@ -23,8 +23,12 @@ def top_offenders(counts, n=3):
     return sorted_list[:n]
 
 def main():
-    lines = read_lines("auth_sample.log")
-    
+    path = "auth_sample.log"
+    try:
+        lines = read_lines(path)
+    except FileNotFoundError:
+        print(f"File not found: {path}")
+        return
     by_ip, by_user = count_failed(lines)
 
     print("Top IPs:")
