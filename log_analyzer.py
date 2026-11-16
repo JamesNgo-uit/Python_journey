@@ -28,19 +28,14 @@ def count_failed(lines):
             ip = line.split()[-1]
             failed[ip] = failed.get(ip, 0) + 1
     return failed
-    # TODO: build and return a dict {ip: number_of_failed_logins}
-    # Hint: this is your first script's loop
-    #pass
+    
 
 
 def top_offenders(counts, n=3):
     
     top_offenders_list = sorted(counts.items(), key=lambda x: x[1], reverse=True)
     return top_offenders_list[:n]
-    # TODO: return the n IPs with the highest counts, as (ip, count) pairs
-    # Hint: sorted(..., key=lambda ..., reverse=True) and then a slice [:n]
-    #pass
-
+    
 
 def main():
     lines = read_lines("auth_sample.log")
@@ -52,5 +47,5 @@ def main():
 if __name__ == "__main__":
     main()
 # if __name__ == "__main__": means “run main() only when this file is executed directly, 
-# ot when it’s imported by another script.” It’s the Python version of C++’s int main(), 
+# not when it’s imported by another script.” It’s the Python version of C++’s int main(), 
 # and you’ll see it in nearly every script.
